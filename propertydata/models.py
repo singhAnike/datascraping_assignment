@@ -8,7 +8,6 @@ class Property(models.Model):
     property_locality = models.CharField(max_length=255)
     property_city = models.CharField(max_length=255)
     property_link = models.URLField()
-    # timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.property_name
