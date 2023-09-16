@@ -37,8 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'propertydata',
+    # 'propertydata',
 ]
+# settings.py
+
+CRONJOBS = [
+    ('*/30 * * * *', 'python manage.py scrape_properties'),  
+    ('0 0 * * *', 'python manage.py scrape_properties'),     # Run at midnight
+]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,8 +85,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'PropertyDataDB',
-        'ENFORCE_SCHEMA': False,
-
        
     }
 }
